@@ -1,0 +1,33 @@
+.paginator {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  z-index: 1;
+  width: 50px;
+  flex-direction: column;
+  justify-content: center;
+
+  button {
+    background: none;
+    border: none;
+    margin: 20px 0;
+    font-size: 2rem;
+    transform: rotate(90deg);
+    outline: none;
+    z-index: 1;
+    &:hover {
+      cursor: pointer;
+    }
+    &.active {
+      font-size: 3rem;
+    }
+  }
+
+  .page-indicator {
+    font-size: 2rem;
+    text-align: center;
+    transform: rotate(90deg);
+  }
+}

@@ -1,0 +1,84 @@
+#tag-menu {
+  position: fixed;
+  left: -225px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  background-color: @charcoal;
+  transition: left 0.5s;
+  z-index: 1;
+
+  &.active {
+    left: 0;
+  }
+
+  .body {
+    width: 225px;
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20%;
+
+      .tag {
+        color: @faded_white;
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+        &:hover {
+          color: @smoke;
+        }
+        @media (max-width: @mobile) {
+          margin-bottom: 10px;
+        }
+
+        &[active] {
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+  .tab {
+    position: relative;
+    width: 35px;
+    border: none;
+    background: inherit;
+    outline: none;
+    cursor: pointer;
+
+    .burger {
+      position: absolute;
+      top: 10px;
+      right: 50%;
+      transform: translateX(50%);
+
+      .line {
+        display: inline-block;
+        width: 2px;
+        height: 24px;
+        margin-right: 2px;
+        background-color: @faded_white;
+
+        &:first-child,
+        &:last-child {
+          height: 20px;
+        }
+      }
+    }
+    .text {
+      display: inline-block;
+      position: relative;
+      top: 50%;
+      left: -15px;
+      transform: rotate(90deg) translateX(-50%);
+      color: @faded_white;
+      white-space: nowrap;
+
+      @media (max-width: @mobile) {
+        left: -21px;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

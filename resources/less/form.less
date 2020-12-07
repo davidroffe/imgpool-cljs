@@ -1,0 +1,131 @@
+input[type='text']:not(.search-field),
+input[type='password'],
+textarea {
+  padding: 15px 10px;
+  width: 300px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid @charcoal;
+  margin: 10px auto;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  font-weight: 600;
+  background: none;
+}
+
+input[type='text']:focus,
+input[type='password']:focus,
+textarea:focus {
+  outline: 0;
+}
+
+::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  opacity: 1;
+}
+
+textarea {
+  height: 125px;
+}
+
+input[type='submit'] {
+  margin: auto;
+}
+
+.upload-container {
+  padding: 15px 10px;
+  margin: auto;
+  width: 300px;
+  border-bottom: 1px solid @charcoal;
+
+  button {
+    padding: 0;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.field-container {
+  margin-bottom: 35px;
+}
+
+.form-dark {
+  input[type='text'],
+  input[type='password'] {
+    color: @faded_white;
+    border-color: @faded_white;
+  }
+  ::-webkit-input-placeholder {
+    color: #ffffff;
+    opacity: 1;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #ffffff;
+    opacity: 1;
+  }
+  ::-ms-input-placeholder {
+    color: #ffffff;
+    opacity: 1;
+  }
+
+  input[type='submit'] {
+    border-color: #fff;
+    color: @faded_white;
+
+    &:hover {
+      background: #fff;
+      color: #333;
+    }
+  }
+}
+
+.form-light {
+  input[type='text'],
+  input[type='password'] {
+    color: @charcoal;
+    border-bottom: 1px solid @charcoal;
+  }
+  ::-webkit-input-placeholder {
+    color: @charcoal;
+    opacity: 1;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: @charcoal;
+    opacity: 1;
+  }
+  ::-ms-input-placeholder {
+    color: @charcoal;
+    opacity: 1;
+  }
+
+  input[type='submit'] {
+    border-color: @charcoal;
+    color: @charcoal;
+
+    &:hover {
+      background: @charcoal;
+      color: @faded_white;
+    }
+  }
+}
+
+form {
+  p {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}

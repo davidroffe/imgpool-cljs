@@ -1,0 +1,161 @@
+@import '../../../node_modules/react-toastify/dist/ReactToastify.css';
+@import './reset.less';
+@import './type.less';
+@import './modal.less';
+@import './loader.less';
+@import './form.less';
+
+@mobile: 720px;
+@tablet: 900px;
+
+/* React wrapping root element children in div */
+html,
+body,
+#root,
+#root > div {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.border-button(@color: @charcoal) {
+  border: 2px solid @color;
+  padding: 0px 14px;
+  width: 326px;
+  max-width: 100%;
+  height: 50px;
+  background: none;
+  color: @color;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: block;
+  cursor: pointer;
+  transition: background 0.5s ease, color 0.5s ease;
+
+  &:hover {
+    background: @color;
+    color: @faded_white;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.border-button {
+  .border-button();
+}
+.border-button-green {
+  .border-button(@grass);
+}
+.border-button-red {
+  .border-button(@candy_apple);
+}
+.border-button-yellow {
+  .border-button(@mustard);
+}
+#main-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 50px;
+  @media (max-width: @mobile) {
+    padding: 15px 45px 0;
+  }
+
+  .left {
+    display: flex;
+    @media (max-width: @mobile) {
+      width: 100%;
+    }
+    .logo {
+      display: inline-block;
+      max-width: 150px;
+      margin-top: 15px;
+      @media (max-width: @mobile) {
+        margin: 0;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+    #main-nav {
+      display: flex;
+      align-items: flex-end;
+      margin: 0 10px;
+
+      a {
+        margin: 0 8px 3px;
+        padding-bottom: 1px;
+        font-size: 1.2rem;
+        font-family: sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: @charcoal;
+        border-bottom: 3px solid transparent;
+
+        &:hover {
+          border-bottom-color: @charcoal;
+        }
+      }
+    }
+  }
+  .search {
+    align-self: flex-end;
+    @media (max-width: @mobile) {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    input {
+      height: 40px;
+      width: 300px;
+      border: none;
+      background: rgba(0, 0, 0, 0.6);
+      outline: none;
+      color: @faded_white;
+      padding: 5px 10px;
+      font-size: 1.2rem;
+      font-family: sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04),
+        -6px 8px 15px rgba(0, 0, 0, 0.04), 6px 8px 15px rgba(0, 0, 0, 0.04);
+      &::placeholder {
+        color: @faded_white;
+      }
+      @media (max-width: @mobile) {
+        width: 100%;
+      }
+    }
+  }
+}
+//App Views
+.container {
+  max-width: 75%;
+  margin: 5% auto 0;
+  padding: 60px;
+  @media (max-width: @mobile) {
+    max-width: none;
+    margin: 0;
+    padding: 45px;
+  }
+}
+
+h1 {
+  margin: 0 auto 35px;
+
+  span {
+    padding-right: 15px;
+    border-right: 1px solid @charcoal;
+  }
+}
+// Google reCAPTCHA
+#recaptcha {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}

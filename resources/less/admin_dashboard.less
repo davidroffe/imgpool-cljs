@@ -1,0 +1,36 @@
+#admin-manage-form {
+  padding: 20px 50px 0;
+
+  .admin-manage-select__control {
+    border-radius: 0;
+    border-color: @charcoal;
+    box-shadow: none !important;
+
+    .admin-manage-select__indicators {
+      .admin-manage-select__indicator-separator {
+        background-color: @charcoal;
+      }
+      .admin-manage-select__indicator {
+        color: @charcoal;
+      }
+    }
+  }
+  .admin-manage-select__menu {
+    border-radius: 0;
+
+    .admin-manage-select__option {
+      &:hover,
+      &:active,
+      &--is-focused {
+        background-color: @cinder_block;
+      }
+    }
+  }
+  button {
+    margin: 0 auto 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
