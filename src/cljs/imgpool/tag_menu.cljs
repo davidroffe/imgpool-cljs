@@ -11,7 +11,9 @@
   ;(close-all-menus-except "TAGS-MENU")
 
 (defn burger-button [{:keys [toggle-menu]}]
-  [:button.tab {:on-click (fn [e] (.preventDefault e) (.stopPropagation e) (toggle-menu e "tags"))}
+  [:button.tab {:on-click (fn [event] (.preventDefault event)
+                            (.stopPropagation event)
+                            (toggle-menu event "tags"))}
    [:span.burger
     [:span.line]
     [:span.line]
