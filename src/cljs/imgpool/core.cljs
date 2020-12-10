@@ -102,7 +102,7 @@
   (fn [] [:header#main-header
           [:div.left
            [:a.logo {:href (path-for :index)}
-            [:img {:src "https://via.placeholder.com/50" :alt "Imgpool Logo"}]]
+            [:img {:src "/images/logo.svg" :alt "Imgpool Logo"}]]
            [:nav#main-nav
             [:a {:href (path-for :index)} "Posts"]
             [:a {:href (path-for :account)} "Account"]
