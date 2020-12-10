@@ -1,5 +1,7 @@
 (ns imgpool.core
   (:require
+   [cljs.core.async :refer [<! go]]
+   [cljs-http.client :as http]
    [reagent.core :as reagent :refer [atom]]
    [reagent.dom :as rdom]
    [reagent.session :as session]
@@ -113,7 +115,7 @@
 
 (defn page-for [route]
   (case route
-    :index (fn [] [post-list {:show-tag-menu (-> @state :menus :tags) :toggle-menu toggle-menu}])
+    :index (fn [] [post-list {:posts (-> @state :posts :list) :show-tag-menu (-> @state :menus :tags) :toggle-menu toggle-menu}])
     :flag-list (fn [] [flag-list {:flags (:flags @state) :is-admin (-> @state :user :is-admin) :retrieve-flags #()}])
     :admin (fn [] [admin-dashboard {:user (:user @state) :flags (:flags @state)}])
     :account (fn [] [account {:user (:user @state)}])
@@ -153,3 +155,18 @@
       (boolean (reitit/match-by-path router path)))})
   (accountant/dispatch-current!)
   (mount-root))
+
+(go (let [response (<! (http/get "http://local.imgpool.com/api/post/list"
+                                 {:with-credentials? false
+                                  :query-params {"searchQuery" "" "page" "1"}}))]
+      (swap! state assoc-in [:posts :list] (mapv (fn [post] {:updated-at (:updatedAt post)
+                                                             :active (:active post)
+                                                             :created-at (:createdAt post)
+                                                             :height (:height post)
+                                                             :id (:id post)
+                                                             :source (:source post)
+                                                             :tag (:tag post)
+                                                             :thumb-url (:thumbUrl post)
+                                                             :url (:url post)
+                                                             :user-id (:userId post)
+                                                             :width (:width post)}) (-> response :body :list)))))

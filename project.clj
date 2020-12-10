@@ -5,6 +5,8 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [[org.clojure/clojure "1.10.1"]
+                 [org.clojure/core.async "1.3.610"]
+                 [cljs-http "0.1.46"]
                  [ring-server "0.5.0"]
                  [reagent "0.10.0"]
                  [reagent-utils "0.3.3"]
@@ -64,7 +66,8 @@
               :output-dir "target/cljsbuild/public/js/out"
               :source-map true
               :optimizations :none
-              :pretty-print  true}}}}
+              :pretty-print  true
+              :closure-defines {env-vars.core.image-host ~(System/getenv "IMAGE_HOST")}}}}}
 
   :figwheel
   {:http-server-root "public"
